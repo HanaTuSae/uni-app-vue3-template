@@ -1,0 +1,24 @@
+{
+  "easycom": {
+    "custom": {
+      "^u-(.*)": "@/vk-uview-ui/components/u-$1/u-$1.vue",
+      // 排除top和down组件
+      "^mescroll-(?!top|down)(.*)": "@/plugins/mescroll-uni/components/mescroll-$1/mescroll-$1.vue",
+      "qrcode": "@/plugins/Sansnn-uQRCode/components/qrcode/qrcode.vue"
+    }
+  },
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "uni-app"
+			}
+		}
+	],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "uni-app",
+		"navigationBarBackgroundColor": "#F8F8F8",
+		"backgroundColor": "#F8F8F8"
+	}
+}

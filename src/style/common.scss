@@ -1,0 +1,373 @@
+@import '@/style/mixin.scss';
+/* #ifndef APP-NVUE */
+view,
+scroll-view,
+swiper,
+swiper-item,
+cover-view,
+cover-image,
+icon,
+text,
+rich-text,
+progress,
+button,
+checkbox,
+form,
+input,
+label,
+radio,
+slider,
+switch,
+textarea,
+navigator,
+audio,
+camera,
+image,
+video {
+  box-sizing: border-box;
+}
+/* #endif */
+
+.u-flex-1 {
+  min-width: 0;
+  min-height: 0;
+}
+
+page {
+  background-color: #fff;
+  height: 100%;
+  font-size: 28rpx;
+}
+
+.page-container {
+  display: flex;
+  flex-direction: column;
+  // height: 100%;
+  /* #ifdef MP */
+  min-height: 100vh;
+  /* #endif */
+  /* #ifdef H5 */
+  min-height: 100%;
+  /* #endif */
+  overflow: hidden auto;
+}
+
+.main {
+  flex: 1;
+  min-width: 0;
+  min-height: 0;
+  z-index: 1;
+}
+
+// image {
+//   display: block;
+// }
+
+// 定义内外边距，历遍1-80, uview-ui增加样式
+@for $i from 0 through 100 {
+  // 只要双数和能被5除尽的数
+  @if $i % 2 == 0 or $i % 5 == 0 {
+    @each $short, $long, $long1 in lr left right, tb top bottom {
+      // 缩写版，结果如： u-m-lr-30
+      // 定义外边距
+      .u-m-#{$short}-#{$i} {
+        margin-#{$long}: $i + rpx !important;
+        margin-#{$long1}: $i + rpx !important;
+      }
+
+      // 定义内边距
+      .u-p-#{$short}-#{$i} {
+        padding-#{$long}: $i + rpx !important;
+        padding-#{$long1}: $i + rpx !important;
+      }
+
+      // 完整版，结果如：u-margin-lr-30
+      // 定义外边距
+      .u-margin-#{$short}-#{$i} {
+        margin-#{$long}: $i + rpx !important;
+        margin-#{$long1}: $i + rpx !important;
+      }
+
+      // 定义内边距
+      .u-padding-#{$short}-#{$i} {
+        padding-#{$long}: $i + rpx !important;
+        padding-#{$long1}: $i + rpx !important;
+      }
+    }
+  }
+}
+
+// 定义内外边距，历遍1-80
+@for $i from 80 through 100 {
+  // 只要双数和能被5除尽的数
+  @if $i % 2 == 0 or $i % 5 == 0 {
+    // 得出：u-margin-30或者u-m-30
+    .u-margin-#{$i},
+    .u-m-#{$i} {
+      margin: $i + rpx !important;
+    }
+
+    // 得出：u-padding-30或者u-p-30
+    .u-padding-#{$i},
+    .u-p-#{$i} {
+      padding: $i + rpx !important;
+    }
+
+    @each $short, $long in l left, t top, r right, b bottom {
+      // 缩写版，结果如： u-m-l-30
+      // 定义外边距
+      .u-m-#{$short}-#{$i} {
+        margin-#{$long}: $i + rpx !important;
+      }
+
+      // 定义内边距
+      .u-p-#{$short}-#{$i} {
+        padding-#{$long}: $i + rpx !important;
+      }
+
+      // 完整版，结果如：u-margin-left-30
+      // 定义外边距
+      .u-margin-#{$long}-#{$i} {
+        margin-#{$long}: $i + rpx !important;
+      }
+
+      // 定义内边距
+      .u-padding-#{$long}-#{$i} {
+        padding-#{$long}: $i + rpx !important;
+      }
+    }
+  }
+}
+
+// 定义字体(rpx)单位
+@for $i from 8 through 120 {
+  .font-#{$i} {
+    font-size: $i + rpx;
+  }
+}
+
+// 定义字体粗细
+@for $i from 100 through 900 {
+  @if $i % 100 == 0 {
+    .font-weight-#{$i} {
+      font-weight: $i;
+    }
+  }
+}
+
+.font-weight-bold {
+  font-weight: bold;
+}
+
+// 定义圆角
+@for $i from 0 through 40 {
+  @if $i % 5 == 0 {
+    .border-radius-#{$i} {
+      border-radius: $i + rpx;
+    }
+  }
+}
+.border-radius-circle {
+  border-radius: 50%;
+}
+
+/* #ifndef APP-NVUE */
+// 不可点击
+.disabled {
+  pointer-events: none;
+  opacity: 0.8;
+  background-color: #ddd;
+  color: #fff;
+}
+/* #endif */
+
+// 删除线
+.text-line-through {
+  text-decoration: line-through;
+}
+
+// 下划线
+.text-underline {
+  text-decoration: underline;
+}
+
+// 超出隐藏
+.over-hide {
+  overflow: hidden;
+}
+
+// 布局
+.x-wh-100 {
+  width: 100%;
+  height: 100%;
+}
+
+.x-w-100 {
+  width: 100%;
+}
+
+.x-h-100 {
+  height: 100%;
+}
+
+.x-top {
+  top: 0;
+}
+
+.x-right {
+  right: 0;
+}
+
+.x-bottom {
+  bottom: 0;
+}
+
+.x-left {
+  left: 0;
+}
+
+.x-relative {
+  position: relative;
+}
+
+.x-absolute {
+  position: absolute;
+}
+
+.x-fixed {
+  position: fixed;
+}
+.x-sticky {
+  position: sticky;
+}
+
+// flex
+.x-flex {
+  display: flex;
+}
+.inline-flex {
+  display: inline-flex;
+}
+.flex-onehalf {
+  flex: 1.5;
+}
+
+// flex布局
+.flex-wrap {
+  flex-wrap: wrap;
+}
+/* #ifndef APP-NVUE */
+$flexMap: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch,
+  between: space-between,
+  around: space-around
+);
+/* #endif */
+/* #ifdef APP-NVUE */
+$flexMap: (
+  start: flex-start,
+  center: center,
+  end: flex-end,
+  stretch: stretch
+);
+/* #endif */
+@each $name, $attr in $flexMap {
+  @if $name != between or $name != around {
+    /* #ifndef APP-NVUE */
+    .self-#{$name} {
+      align-self: $attr;
+    } /* #endif */
+    .align-#{$name} {
+      align-items: $attr;
+    }
+  } @else if $name != stretch {
+    .justify-#{$name} {
+      justify-content: $attr;
+    }
+  }
+}
+// 行高
+.line-height-half {
+  line-height: 0.5;
+}
+.line-height-1 {
+  line-height: 1;
+}
+.line-height-1_1 {
+  line-height: 1.1;
+}
+.line-height-1_2 {
+  line-height: 1.2;
+}
+.line-height-1_5 {
+  line-height: 1.5;
+}
+// 主题背景色
+.bg-theme-color {
+  background-color: $theme-color !important;
+}
+.bg-white-color {
+  background-color: #fff !important;
+}
+.bg-black-color {
+  background-color: #000 !important;
+}
+.bg-f3-color {
+  background-color: #f3f3f3 !important;
+}
+// 主题字体色
+.text-theme-color {
+  color: $theme-color !important;
+}
+.text-white-color {
+  color: #fff;
+}
+.text-333-color {
+  color: #333;
+}
+.text-555-color {
+  color: #555;
+}
+.text-999-color {
+  color: #999;
+}
+.text-ccc-color {
+  color: #ccc;
+}
+.text-2b-color {
+  color: #2b2b2b;
+}
+.ellipsis {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+/* 隐藏滚动条 */
+::-webkit-scrollbar {
+  display: none;
+}
+// ￥符号
+.price {
+  &::before {
+    content: '￥';
+    font-size: 80%;
+  }
+}
+
+// // uview-ui样式重置
+// .page-container {
+//   .u-radio {
+//     .u-radio__icon-wrap--disabled--checked {
+//       color: #fff !important;
+//       background-color: #2979ff;
+//       border-color: #2979ff;
+//     }
+//   }
+//   .u-form-item--right {
+//     min-width: 0;
+//     min-height: 0;
+//   }
+// }
