@@ -24,7 +24,13 @@ npm i
 
 ## 升级uniapp sdk方法
 
-1. 打开命令行工具，执行命令 `npm view @dcloudio/uni-app`打印当前最新的版本号，找到 `vue3: 版本号在这是一串数字` 复制 `上述版本号` 替换掉根目录中的package.json文件中的版本号。然后执行 `npm install`升级，安装即可。
+### 第一种方法
+
+1. 运行 `npx @dcloudio/uvm@latest`；会自动更新依赖。
+
+### 第二种方法
+
+1. 打开命令行工具，执行命令 `npm view @dcloudio/uni-app`打印当前最新的版本号，找到 `latest: 版本号在这是一串数字` 复制 `上述版本号` 替换掉根目录中的package.json文件中的版本号。然后执行 `npm install`升级，安装即可。
 2. 在uniapp官方的npm版本库中找到最新的版本号[@dcloudio/uni-app](https://www.npmjs.com/package/@dcloudio/uni-app)，切换至：Version后，第一个对应的VUE3那一栏3.0.0-alpha-304xxxxx这个就是版本号。
 
 ## 使用其他ui框架，需先卸载uview
